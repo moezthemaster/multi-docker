@@ -11,4 +11,4 @@ script:
   - docker run -e CI=true moezthemaster/react-test npm test
 
 after_success:
-  - ./deploy.sh $DOCKER_PASSWORD $DOCKER_ID
+  - ./deploy.sh $DOCKER_ID $DOCKER_PASSWORD
