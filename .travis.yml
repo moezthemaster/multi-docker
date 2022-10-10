@@ -11,14 +11,4 @@ script:
   - docker run -e CI=true moezthemaster/react-test npm test
 
 after_success:
-  - docker build -t moezthemaster/multi-client ./client
-  - docker build -t moezthemaster/multi-nginx ./nginx
-  - docker build -t moezthemaster/multi-server ./server
-  - docker build -t moezthemaster/multi-worker ./worker
-  # Log in to the docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # Take those images and push them to docker hub
-  - docker push moezthemaster/multi-client
-  - docker push moezthemaster/multi-nginx
-  - docker push moezthemaster/multi-server
-  - docker push moezthemaster/multi-worker
+  - ./deploy.sh $DOCKER_PASSWORD $DOCKER_ID

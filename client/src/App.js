@@ -19,6 +19,7 @@ function App() {
           >
             Learn React
           </a>
+	  <p>Version 1.0.0</p>
           <Link to="/">Home</Link>
           <Link to="/otherpage">Other Page</Link>
         </header>
