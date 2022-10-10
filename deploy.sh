@@ -1,6 +1,6 @@
 #!/bin/bash
-TRAVIS_DEPLOY_USER = $1
-TRAVIS_DEPLOY_PASSWORD = $2
+TRAVIS_DEPLOY_USER=$1
+TRAVIS_DEPLOY_PASSWORD=$2
 
 if [ "$TRAVIS_BRANCH" == "prod" ]; then
     docker build -t moezthemaster/multi-client ./client
