@@ -12,3 +12,15 @@ script:
 
 after_success:
   - ./deploy.sh $DOCKER_ID $DOCKER_PASSWORD
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'eu-west-3'
+  app: 'multi-docker'
+  env: 'Multidocker-env'
+  bucket_name: 'elasticbeanstalk-eu-west-3-967594418546'
+  bucket_path: 'multi-docker'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
