@@ -2,7 +2,7 @@
 TRAVIS_DEPLOY_USER=$1
 TRAVIS_DEPLOY_PASSWORD=$2
 
-if [ "$TRAVIS_BRANCH" == "prod" ]; then
+if [ "$TRAVIS_BRANCH" == "main" ]; then
     docker build -t moezthemaster/multi-client ./client
     docker build -t moezthemaster/multi-nginx ./nginx
     docker build -t moezthemaster/multi-server ./server
@@ -14,4 +14,6 @@ if [ "$TRAVIS_BRANCH" == "prod" ]; then
     docker push moezthemaster/multi-nginx
     docker push moezthemaster/multi-server
     docker push moezthemaster/multi-worker
+else
+  echo "we are on branch $TRAVIS_BRANCH. we do not not deploy"
 fi
